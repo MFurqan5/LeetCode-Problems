@@ -1,0 +1,16 @@
+class Solution(object):
+    def reverseParentheses(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        stack = [""]
+        for c in s:
+            if c == '(':
+                stack.append("")
+            elif c == ')':
+                top = stack.pop()
+                stack[-1] += top[::-1]
+            else:
+                stack[-1] += c
+        return stack[0]
